@@ -159,3 +159,13 @@ iOSでOpenGLESアプリを構築するには、いくつかの考慮事項が必
 
 
 
+## Choosing Which OpenGL ES Versions to Support
+
+> サポートするOpenGLESバージョンの選択
+
+
+アプリがOpenGLES 3.0、OpenGL ES 2.0、OpenGL ES 1.1、または複数のバージョンをサポートする必要があるかどうかを決定します。
+
+
+
+
