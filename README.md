@@ -167,5 +167,46 @@ iOSでOpenGLESアプリを構築するには、いくつかの考慮事項が必
 アプリがOpenGLES 3.0、OpenGL ES 2.0、OpenGL ES 1.1、または複数のバージョンをサポートする必要があるかどうかを決定します。
 
 
+- OpenGL ES3.0はiOS7の新機能です。これにより、以前はデスクトップクラスのハードウェアおよびゲームコンソールでのみ可能であった、より高いパフォーマンス、汎用GPUコンピューティング技術、およびより複雑な視覚効果を可能にする多くの新機能が追加されます。
+- OpenGL ES 2.0は、iOSデバイスのベースラインプロファイルであり、プログラム可能なシェーダーに基づく構成可能なグラフィックスパイプラインを備えています。
+- OpenGL ES 1.1は、基本的な固定機能のグラフィックパイプラインのみを提供し、主に下位互換性のためにiOSで使用できます。
 
 
+アプリに最も関連する機能とデバイスをサポートする1​​つまたは複数のバージョンのOpenGLESをターゲットにする必要があります。  iOSデバイスのOpenGLES機能の詳細については、iOSデバイス互換性リファレンスを参照してください。
+
+
+サポートする予定のOpenGLESのバージョンのコンテキストを作成するには、「OpenGLESコンテキストの構成」を参照してください。  OpenGL ESバージョンの選択が、アプリで使用する可能性のあるレンダリングアルゴリズムとどのように関連しているかについては、OpenGLESバージョンとレンダラーアーキテクチャを参照してください。
+
+
+
+## Verifying OpenGL ES Capabilities
+
+> OpenGLES機能の検証
+
+
+iOSデバイス互換性リファレンスには、iOSデバイスの出荷で利用できる機能と拡張機能がまとめられています。 ただし、アプリをできるだけ多くのデバイスとiOSバージョンで実行できるようにするには、アプリは常にOpenGLES実装に実行時の機能を問い合わせる必要があります。
+
+
+
+最大テクスチャサイズや頂点属性の最大数などの実装固有の制限を決定するには、データ型に適切なglGet関数を使用して、対応するトークン（gl.hヘッダーにある`MAX_TEXTURE_SIZE`や`MAX_VERTEX_ATTRIBSなど`）の値を検索します。
+
+
+
+OpenGL ES 3.0拡張機能を確認するには、次のコード例のように`glGetIntegerv`関数と`glGetStringi`関数を使用します。
+
+
+``` .objc
+BOOL CheckForExtension(NSString *searchName)
+{
+    // Create a set containing all extension names.
+    // (For better performance, create the set only once and cache it for future use.)
+    int max = 0;
+    glGetIntegerv(GL_NUM_EXTENSIONS, &max);
+    NSMutableSet *extensions = [NSMutableSet set];
+    for (int i = 0; i < max; i++) {
+        [extensions addObject: @( (char *)glGetStringi(GL_EXTENSIONS, i) )];
+    }
+    return [extensions containsObject: searchName];
+}
+
+```
