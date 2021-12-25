@@ -199,7 +199,9 @@ OpenGL ES 3.0拡張機能を確認するには、次のコード例のように`
 BOOL CheckForExtension(NSString *searchName)
 {
     // Create a set containing all extension names.
+    // すべての拡張子名を含むセットを作成します。
     // (For better performance, create the set only once and cache it for future use.)
+    // （パフォーマンスを向上させるには、セットを1回だけ作成し、将来使用するためにキャッシュします。）
     int max = 0;
     glGetIntegerv(GL_NUM_EXTENSIONS, &max);
     NSMutableSet *extensions = [NSMutableSet set];
