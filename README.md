@@ -195,7 +195,7 @@ iOSデバイス互換性リファレンスには、iOSデバイスの出荷で�
 OpenGL ES 3.0拡張機能を確認するには、次のコード例のように`glGetIntegerv`関数と`glGetStringi`関数を使用します。
 
 
-``` .objc
+``` .cpp
 BOOL CheckForExtension(NSString *searchName)
 {
     // Create a set containing all extension names.
