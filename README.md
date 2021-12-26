@@ -212,3 +212,9 @@ BOOL CheckForExtension(NSString *searchName)
 }
 
 ```
+
+OpenGL ES 1.1および2.0拡張機能を確認するには、`glGetString(GL_EXTENSIONS)`を呼び出して、すべての拡張機能名のスペース区切りのリストを取得します。
+
+
+
+
