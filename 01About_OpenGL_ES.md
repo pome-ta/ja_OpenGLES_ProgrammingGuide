@@ -9,7 +9,7 @@ Open Graphics Library（OpenGL）は、2Dおよび3Dデータを視覚化する�
 OpenGL for Embedded Systems（OpenGL ES）は、OpenGLの簡略化されたバージョンであり、冗長な機能を排除して、モバイルグラフィックスハードウェアでの学習と実装の両方が容易なライブラリを提供します。
 
 
-[画像リンク](#)
+![画像リンク](https://developer.apple.com/library/archive/documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/Art/cpu_gpu_2x.png)
 
 
 
